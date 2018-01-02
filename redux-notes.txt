@@ -1,0 +1,155 @@
+/*** NOTES ***/
+
+/*** REACT/REDUX BOILERPLATE ***/
+
+"https://github.com/StephenGrider/ReduxSimpleStarter"
+
+/*** TESTING GUIDELINES ***/
+
+write tests to make assertions about the end product, 
+about the html that ends up on the screen.
+
+not so much about if our component has a specific method,
+and if we call that method something happens. 
+
+/*** TESTING CLI COMMANDS ***/
+  
+  - THIS COMMAND WORKS WITH THE PACKAGE.JSON IN THIS FILE
+  - THIS COMMAND RUNS TESTS IN TEST/COMPONENTS/APP_TEST.JS
+
+  -> npm run test:watch
+
+/*** TESTING SYNTAX ***/
+
+  -> expect(component).to.have.class('comment-box');
+    'component' being the thing we want to make an assertion about
+    '.to.have.class' assertion-matcher - how to compare the two given values
+    'comment-box' The value we expect 
+
+/*** BASIC REACT-REDUX DIRECTORY STRUCTURE ***/
+
+Redux basic setup is 3 subfolders inside of an src folder.
+	-> Project
+		-> node_modules
+		-> src
+			-> actions
+				-> index.js
+			-> components
+				-> app.js
+			-> reducers
+				-> index.js
+			index.js
+		-> style
+		 -> style.css
+		-> test
+			-> components
+				-> app_test.js
+				test_helper.js
+	-> ...
+	-> ...
+	-> package.json
+	-> ...
+
+/*** JQUERY SYNTAX CODE REFERENCE ***/
+
+	"https://github.com/chaijs/chai-jquery"
+
+/*** REACT-ADDONS-TEST-UTILS LIBRARY ***/
+
+import TestUtils from 'react-addons-test-utils';
+
+-> makes it easier to test React components 
+-> works with a variety of testing frameworks
+
+/*** CHAI LIBRARY ***/
+
+testing library
+
+/*** DECLARING REACT VARIABLE THAT WILL CHANGE OVER TIME ***/
+
+let component; <- declares variable that will change over time
+
+beforeEach(() => {
+	component = renderComponent(CommentBox);
+});
+
+/*** HIGHER ORDER COMPONENTS ***/
+
+Component + Higher Order Component = Component + additional functionality or data
+Redux 
+
+/*** REDUX ***/
+
+Provider holds the Redux Store.
+Connect is a higher order component that communicates with the provider, and the provider has direct access to the Redux Store.
+
+/*** COOKIES VS TOKENS ***/
+
+Cookie: 
+	-> automatically included on all requests
+	-> unique to each domain
+	-> cannot be sent to different domains for security reasons
+
+Token:
+	-> have to wire up manually
+	-> can be sent to any domain
+	-> used to send auth payload in header
+
+	/*** NPM CLI COMMANDS ***/
+	npm init - creates package.json file
+
+	/***  UBUNTU BASIC CLI COMMANDS ***/
+	copy paste a file -
+		cp sourceFile destinationfile
+		
+	cut & paste a file -
+		mv sourceFile destinationfile 
+
+	/*** MORGAN LIBRARY ***/
+	morgan is a logging framework 
+
+	/*** NODEMON LIBRARY ***/
+	nodemon ./index.js // START LISTENING ON DEFAULT PORT
+	nodemon ./index.js localhost 3090 // SPECIFY A PORT
+
+	/*** MONGODB NOTES ***/
+	to start mongodb - 
+		mongod
+
+	/*** MONGODB SETUP COMMANDS ***/
+	for new projects
+	inside of root directory - 
+	mkdir -p /data/db
+	sudo chown -R $USER /data/db
+
+	then start the database-
+	mongod
+
+	/*** REDUX THUNK NOTES ***/
+	Dispatch is the middleware between an Action and a reducer
+
+	/*** TRUFFLE-DEMO START COMMANDS ***/
+	in root directory: npm start
+	 - starts server on port 3000
+
+	in server directory: nodemon ./index.js
+	 - starts listening on port 3090
+
+	in server directory: mongod
+	 - starts mongodb database 
+
+	 /*** AXIOS LIBRARY NOTES ***/
+		axios sends get/post requests to the server
+
+		/*** Cross-Origin Resource Sharing (CORS) ***/
+
+		Cross-Origin Resource Sharing (CORS) is a mechanism that uses 
+		additional HTTP headers to let a user agent gain permission to 
+		access selected resources from a server on a different origin 
+		(domain) than the site currently in use. A user agent makes a 
+		cross-origin HTTP request when it requests a resource from a 
+		different domain, protocol, or port than the one from which 
+		the current document originated.
+
+
+

@@ -13,3 +13,16 @@ Transactions:
   startGas/gasLimit: Units of has that this transaction can consume
 
   v, r, s: Cryptographic pieces of data that can be used to generate the senders account address. Generated from the sender's private key. Used to verify senders private key. So a private key can be used to generate v, r, s, but you cannot get a senders private key from v, r, s. One way action.
+
+
+
+SHA256:
+
+  - A hash is a digital fingerprint for a piece of data
+  - Every time you have the same piece of data, you will get the exact same hash
+  
+
+  - Each block on the blockchain has a hash that represents a collection of verified transactions.
+  - If the transactions are altered, the hash of the data (list of transactions) changes.
+  - Blocks also include the hash from the previous block on the chain.
+  - This acts as a security method to resist altering of transactions, which is what you want when dealing with currency transactions.

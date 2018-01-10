@@ -1,5 +1,6 @@
 Notes on Ethereum
 
+
 Transactions:
   
   nonce: The nonce is how many times the sender has sent a transaction
@@ -18,7 +19,7 @@ Transactions:
 
 SHA256:
 
-  - A hash is a digital fingerprint for a piece of data
+  - A hash is a 64 digit, digital fingerprint for a piece of data
   - Every time you have the same piece of data, you will get the exact same hash
   
 
@@ -26,3 +27,113 @@ SHA256:
   - If the transactions are altered, the hash of the data (list of transactions) changes.
   - Blocks also include the hash from the previous block on the chain.
   - This acts as a security method to resist altering of transactions, which is what you want when dealing with currency transactions.
+
+
+Contracts: 
+
+  - Basically a bank account controlled by code.
+
+  Contract Accounts:
+
+    balance: amount of ether this account owns
+    storage: data storage for this contract
+    code: raw machine code for this contract
+
+  - When a contract is created, it is created on a specified network.
+  - A contract cannot be called from a network other than the one it's created on.
+  - No communication between networks.
+
+  - When you deploy a contract to a network, it creates an instance of the contract.
+  - Similar to the way a class interacts with an instance in programming.
+
+  - Contract definitions are run through the Solidity Compiler which returns byte code that gets written to the ethereum network.
+  - The compiler also returns the Application Binary Interface (ABI). ABI is interface between our javascript code and the bytecode.
+
+  Common Function Types:
+              
+         /*** Can only use one per function  ***/
+    public: anyone (with an ethereum account) can call this function
+    private: only our contracts code can call this function
+         /*** Can only use one per function  ***/  
+    
+         /*** These mean the same thing // interchangeable  ***/
+    view: returns data and does NOT modify the contract's data
+    constant: returns data and does NOT modify the contract's data
+         /*** These mean the same thing // interchangeable  ***/
+
+    pure: function will not modify or even read the contract's data
+    payable: when someone calls this function they might send ether along
+
+    internal:
+    external: 
+
+/*** GOTCHA ***/
+  - Whenever you define a storage variable, when you mark that variable with the public keyword, the contract will create a function with the same name as the storage variable.
+  - When you call that automatically created storage variable function, it will return the value of the storage variable.
+/*** GOTCHA ***/
+
+  startGas/gasLimit: Units of gas that this transaction can consume
+
+  string:
+  bool: true false
+  int: Integer, positive or negative. Has no decimal.
+  uint: 'Unsigned' integer, positive number. Has no decimal.
+  fixed/ufixed: 'Fixed' point number. Number with a decimal afer it.
+  address: has methods tied to it for sending money
+  
+  int8: -128 - 127
+  int16: -32,756 - 32,767
+  int32: -2,147,483,848 - etc.
+  ...
+  int256: really big number - really big number
+
+  same rules apply to uint ^ but no negative numbers. range becomes 0 - x
+
+  'msg' object = { Account + Transaction } --> who sent function invocation
+
+  msg.data: data field from call or transaction that invoked the current function
+  msg.gas: amount of gas the current function invocation has available
+  msg.sender: address of the account that started the current function invocation
+  msg.value: amount of ether(in wei) that was sent along with the function
+
+  msg object is available when we send a txn in, AND when we make a call 
+  
+
+  fixed array: int[3] .. bool[2]
+  dynamic array: int[]
+  mapping: collection of key value pairs .. mapping(string => string) .. mapping(int => bool)
+  struct: collection of key value pairs that can have different types .. 
+  struct Car{
+    string make;
+    string model;
+    uint value;
+  }
+  
+
+Calculating gasprice & gasLimit:
+
+  gasPrice = 300 //price of gas
+  gasLimit = 20 //most we are willing to spend per unit of gas
+  actual gas cost = 14 gas //we get refunded the gas not consumed
+
+  Total cost = 300(wei/gas) x 14 gas = 4,200 wei
+
+  - The account creating a transaction is the account that pays the gas.
+
+  
+Web3js:
+
+  -  Capital W Web3 is the constructor function
+  -  Lowercase w web3 is an instance to use in the application
+
+Mocha Testing:
+
+  Functions:
+
+    it: Run a test and make an assertion.
+    describe: Groups together 'it' functions.
+    beforeEach: Execute some general setup code.
+
+
+
+

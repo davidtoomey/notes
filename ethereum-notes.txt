@@ -115,7 +115,10 @@ Contracts:
     string model;
     uint value;
   }
-  
+
+  - 'modulo' operator returns the remainder 
+    - ex: 10 % 3 ... 3 goes into 10 3 times, with 1 remainder
+    - modulo operator returns 1  
 
 Calculating gasprice & gasLimit:
 

@@ -101,7 +101,14 @@ Contracts:
 
   fixed array: int[3] .. bool[2]
   dynamic array: int[]
-  mapping: collection of key value pairs .. mapping(string => string) .. mapping(int => bool)
+
+/*** ARRAY GOTCHAS  ***/
+  - ABI/JS/Web3 World cannot receive a dynamic array. 
+  - Solidity stores strings as dynamic arrays.
+  -   
+/*** ARRAY GOTCHAS  ***/
+
+  mapping: collection of key value pairs .. mapping(string => string) .. mapping(int => bool) 
   struct: collection of key value pairs that can have different types .. 
   struct Car{
     string make;
